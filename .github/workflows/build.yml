@@ -2,8 +2,7 @@ name: Build and Test
 
 on:
   push:
-    branches:
-      - main # Remplacez "main" par la branche que vous souhaitez déclencher
+    branches: [main] # Remplacez "main" par la branche que vous souhaitez déclencher
   pull_request:
     branches:
       - main # Remplacez "main" par la branche que vous souhaitez déclencher
