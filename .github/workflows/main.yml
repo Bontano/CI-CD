@@ -1,20 +1,10 @@
-name: Mon premier workflow
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+name: Mon workflow
+on: [push, pull_request]
+env:
+  VARIABLE_NAME: value
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Exécuter une action
-        uses: actions/hello-world-docker-action@v1
-      - name: Checkout
-        uses: actions/checkout@v4.1.1    
-      - name: Add new directory
-        run: mkdir new_directory
-      - name: List files
-        run: ls -al
+    - name: display variable
+      run: echo ${{ env.VARIABLE_NAME }}
