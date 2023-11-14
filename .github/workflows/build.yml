@@ -1,0 +1,37 @@
+name: Build and Test
+
+on:
+  push:
+    branches:
+      - main # Remplacez "main" par la branche que vous souhaitez déclencher
+  pull_request:
+    branches:
+      - main # Remplacez "main" par la branche que vous souhaitez déclencher
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+
+      - name: Install PHP Extensions
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libpng-dev # Remplacez libpng-dev par les extensions nécessaires
+          pecl install <extension-name> # Remplacez <extension-name> par les extensions nécessaires
+          echo "extension=<extension-name>.so" | sudo tee -a /etc/php/8.2/cli/php.ini
+          echo "extension=<extension-name>.so" | sudo tee -a /etc/php/8.2/apache2/php.ini
+          php -m # Afficher les extensions PHP installées
+
+      - name: Install Composer Dependencies
+        run: composer install
+
+      - name: Run Tests
+        run: phpunit # Remplacez par la commande pour exécuter vos tests
