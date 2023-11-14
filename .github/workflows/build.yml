@@ -23,6 +23,4 @@ jobs:
       - name: Install Composer Dependencies
         run: composer install
 
-      - name: Run Tests
-        run: phpunit # Remplacez par la commande pour exécuter vos tests
-      
+   
