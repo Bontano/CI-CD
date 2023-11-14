@@ -34,4 +34,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: your-dockerhub-bontano/symfony:latest
+          tags: bontano/symfony:latest
