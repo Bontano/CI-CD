@@ -22,5 +22,6 @@ jobs:
           php-version: 8.2
       - name: Install Composer Dependencies
         run: composer install
-
+      - name: Run tests
+        run: ./vendor/bin/phpunit
    
