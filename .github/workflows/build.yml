@@ -34,4 +34,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: your-dockerhub-Bontano/symfonyCI/CD:latest
+          tags: your-dockerhub-bontano/symfonyCI/CD:latest
